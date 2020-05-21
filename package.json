@@ -1,0 +1,28 @@
+{
+  "name": "streamdeck-sdk",
+  "version": "1.0.0",
+  "description": "Not official SDK for Elgato's Stream Deck with many features",
+  "homepage": "https://github.com/patrickbussmann/streamdeck-sdk#stream-deck-sdk",
+  "bugs": {
+    "url": "https://github.com/patrickbussmann/streamdeck-sdk/issues",
+    "email": "patrick.bussmann@bussmann-it.de"
+  },
+  "keywords": [
+    "streamdeck",
+    "elgato",
+    "sdk",
+    "stream",
+    "deck",
+    "streamdeck-sdk"
+  ],
+  "scripts": {
+    "build": "tsc",
+    "prepare": "tsc"
+  },
+  "author": "Patrick Bußmann <patrick.bussmann@bussmann-it.de>",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^3.9.3"
+  }
+}
