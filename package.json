@@ -1,6 +1,6 @@
 {
   "name": "streamdeck-sdk",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Not official SDK for Elgato's Stream Deck with many features",
   "homepage": "https://github.com/patrickbussmann/streamdeck-sdk#stream-deck-sdk",
   "bugs": {
