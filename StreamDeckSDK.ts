@@ -946,23 +946,38 @@ class StreamDeckPluginInstance extends StreamDeckInstance {
         }
     }
 
-    setTitle(title: string|number|boolean, target: Destination = Destination.HARDWARE_AND_SOFTWARE) {
-        this.sendEvent(EventsSent.SET_TITLE, {
+    /**
+     * Set title
+     *
+     * @param title The title to display. If there is no title parameter, the title is reset to the title set by the user.
+     * @param target Specify if you want to display the title on the hardware and software (0), only on the hardware (1) or only on the software (2). Default is 0.
+     * @param state A 0-based integer value representing the state of an action with multiple states. This is an optional parameter. If not specified, the title is set to all states.
+     */
+    setTitle(title: string|number|boolean, target: Destination = Destination.HARDWARE_AND_SOFTWARE, state?: number) {
+        const data: any = {
             title: title.toString(),
-            target
-        });
+            target,
+        };
+        if (state) {
+            data.state = state;
+        }
+        this.sendEvent(EventsSent.SET_TITLE, data);
     }
 
     /**
      * Set image
      *
      * @param image The image to display encoded in base64 with the image format declared in the mime type (PNG, JPEG, BMP, ...). svg is also supported. If no image is passed, the image is reset to the default image from the manifest.
-     * @param target
+     * @param target Specify if you want to display the title on the hardware and software (0), only on the hardware (1) or only on the software (2). Default is 0.
+     * @param state A 0-based integer value representing the state of an action with multiple states. This is an optional parameter. If not specified, the image is set to all states.
      */
-    setImage(image: string|HTMLCanvasElement = null, target: Destination = Destination.HARDWARE_AND_SOFTWARE) {
+    setImage(image: string|HTMLCanvasElement = null, target: Destination = Destination.HARDWARE_AND_SOFTWARE, state?: number) {
         const data: any = {target};
         if (image) {
             data.image = image instanceof HTMLCanvasElement ? image.toDataURL() : image;
+        }
+        if (state) {
+            data.state = state;
         }
         this.sendEvent(EventsSent.SET_IMAGE, data);
     }
